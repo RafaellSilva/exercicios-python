@@ -1,0 +1,36 @@
+
+desconto_itens = 0
+desconto_valor = 0
+multa_sacolas  = 0
+
+valor_compra = float(input("Digite o valor das suas compras: "))
+
+itens = int(input("Digite o número de itens comprados: "))
+
+sacolas_trazidas  = int(input("Digite quantas sacolas o cliente trouxe: "))
+
+sacolas_usadas = int(input("Digite quantas sacolas o cliente vai precisar: "))
+
+print("\n")
+
+if sacolas_trazidas > 0:
+
+    if valor_compra >= 30:
+        desconto_valor = (valor_compra//30)*0.03
+        print("você gastou %.2f reais, e ganhou %.2f reais de desconto...\n" %(valor_compra,desconto_valor))
+
+    if itens >= 5:
+        desconto_itens = (itens//5) * 0.03
+        print("você comprou %i itens, e ganhou %.2f reais de desconto...\n " %(itens,desconto_itens))
+
+desconto_total = desconto_itens + desconto_valor
+
+if sacolas_usadas > 2:
+    multa_sacolas = (sacolas_usadas - 2)* 0.08
+    print("você usou %i sacolas, e pagará %.2f reais por elas...\n" %(sacolas_usadas,multa_sacolas))
+
+valor_final = valor_compra - desconto_total + multa_sacolas
+
+print("\nTOTAL DE DESCONTOS: %.2f \n" %desconto_total)
+print("TOTAL DE MULTAS: %.2f \n" %multa_sacolas)
+print("O VALOR FINAL DAS SUAS COMPRAS É: %.2f \n" %valor_final)
